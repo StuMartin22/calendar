@@ -17,4 +17,4 @@ var hour = $('.hour')
 // localStorage.setItem('input', textArea.val());
 // console.log(textArea.val());
 
-for (var i=0; i<9 hour.length; i++;
+// for (var i=0; i<9 hour.length; i++;
