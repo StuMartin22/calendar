@@ -1,10 +1,9 @@
 var currentDate = moment().format("dddd, MMMM Do");
 var currentDateDisplay = $("#currentDay");
 currentDateDisplay.text(currentDate);
-var saveBtn = $('.saveBtn')
-var hour = $('.hour')
-var rows = $('.row')
-
+var saveBtn = $(".saveBtn");
+var hour = $(".hour");
+var rows = $(".row");
 
 // saveBtn.on('click', function () {
 //     var textElement = $(this).siblings('.description').val();
@@ -19,36 +18,65 @@ var rows = $('.row')
 
 // for (var i=0; i<9 hour.length; i++;
 
-
+for (let i = 0; i < rows.length; i++) {
+  var button = saveBtn[i];
+  button.addEventListener("click", function () {
+    localStorage.setItem("data" + i, rows[i].children[1].value);
+  });
+}
 
 for (let i = 0; i < rows.length; i++) {
-    var button = saveBtn[i]
-    button.addEventListener('click', function(){
-    localStorage.setItem("data" + i,rows[i].children[1].value)
-    });
-} 
-
-for (let i = 0; i < rows.length; i++) {
-    rows[i].children[1].textContent=localStorage.getItem('data' + i)
-};
+  rows[i].children[1].textContent = localStorage.getItem("data" + i);
+}
 
 //TODO: Below is work in progress of color-time correlation
 // //if currentday = row.hour red
 // //else if currentday>hour green
-// //else if currentday<hour gray 
+// //else if currentday<hour gray
 
 // var timeNow = moment().format("H")
 
 // // if (rows[i].children[0].textContent == currentDateDisplay
 // //     rows[i].children[1]
 
-//     var date = new Date();
-// console.log(date.toLocaleString('en-US'));
-// date.gethours()
-// console.log(Date);
+var d = new Date();
+let currentTime = d.getHours();
+var options = {
+  hour: "numeric",
+  hour12: true,
+};
+var timeString = currentTime.toLocaleString("en-US", options);
+console.log(timeString);
+// console.log(currentTime);
+var calendarTime = document.getElementsByClassName(".hour").innerHTML;
+// for (let i = 0; i < calendarTime.length; i++) {
+//   if (calendarTime[i] === timeString) {
+//     console.log("hey");
+//   }
+//   else if (calendarTime[i] > timeString) {
+//     console.log("yo");
+//   }
 
-// var options = { hour12: false };
-// console.log(date.toLocaleString('en-US', options));
+//   else (calendarTime[i] === timeString); {
+//     alert("hey");
+//   }
+// }
 
-// // var testers = gethours()
-// // console.log(testers);
+for
+(let i = 0; i < rows.length; i++){
+  if (calendarTime=== timeString) 
+  {console.log("hey");}
+}
+// if {(calendarTime === timeString);
+// else if {(calendarTime < timeString);
+// console.log("yes");}
+// else {(calendarTime>timeString);
+//     console.log("yippee");}
+// }
+// } else if { (rows[i].children[0].innerHTML > currentTime)
+// console.log(currentTime);
+// } else { (rows[i].children[0].innerHTML < currentTime)
+// console.log(5)};
+// } else { calendarTime < timeString
+//     console.log("yip");
+// }
