@@ -45,10 +45,30 @@ var options = {
   hour: "numeric",
   hour12: true,
 };
-var timeString = currentTime.toLocaleString("en-US", options);
-console.log(timeString);
+var timeInt = parseInt(currentTime.toLocaleString("en-US", options));
+// if ( < currentTime) {
+//   alert ("is b4 tin")
+// } else {
+//   alert ("benwaswrong")
+// }
+
+for (let i = 0 ; i < rows.length; i++) {
+  var rowInt = parseInt(rows[i].id)
+  if (rowInt > timeInt){
+    rows.addClass("future");
+  } 
+  if (rowInt < timeInt){
+    rows.addClass("past");
+  }
+  if (rowInt == timeInt){
+    rows.addClass("present");
+  }
+}
+
+
 // console.log(currentTime);
-var calendarTime = document.getElementsByClassName(".hour").innerHTML;
+// var calendarTime = document.getElementsByClassName(".hour").innerHTML;
+// // for ()
 // for (let i = 0; i < calendarTime.length; i++) {
 //   if (calendarTime[i] === timeString) {
 //     console.log("hey");
@@ -62,11 +82,10 @@ var calendarTime = document.getElementsByClassName(".hour").innerHTML;
 //   }
 // }
 
-for
-(let i = 0; i < rows.length; i++){
-  if (calendarTime=== timeString) 
-  {console.log("hey");}
-}
+// for (let i = 0; i < calendarTime.length; i++)
+//   if (calendarTime=== timeString) {
+//   console.log("hey");}
+
 // if {(calendarTime === timeString);
 // else if {(calendarTime < timeString);
 // console.log("yes");}
